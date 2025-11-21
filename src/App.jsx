@@ -1,6 +1,5 @@
-import React from "react";
-import Header from "./Header";
 import Footer from "./Footer";
+import Header from "./Header";
 import HeroSection from "./HeroSection";
 import TaskBoard from "./Task/TaskBoard";
 
@@ -14,6 +13,7 @@ const App = () => {
         <TaskBoard></TaskBoard>
       </div>
       <Footer></Footer>
+      
     </div>
   );
 };

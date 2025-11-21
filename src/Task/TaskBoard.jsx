@@ -1,15 +1,15 @@
-import React, { useActionState, useState } from "react";
+import { useState } from "react";
+import AddTaskModal from "./AddTaskModal";
 import SearchTask from "./SearchTask";
 import TaskActions from "./TaskActions";
 import TaskList from "./TaskList";
-import AddTaskModal from "./AddTaskModal";
 
 const TaskBoard = () => {
 
   const defaultTask = {
     id: crypto.randomUUID(),
     title: "Learn React",
-    decription: "learn react such a way that can help me to get a job",
+    description: "learn react such a way that can help me to get a job",
     tags: ["web", "react", "js"],
     priority: "High",
     isFavorite: true,

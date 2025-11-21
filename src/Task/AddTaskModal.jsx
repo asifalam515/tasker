@@ -1,12 +1,19 @@
-import React from 'react';
+import { useState } from "react";
 
 const AddTaskModal = () => {
+  const [task,setTasks]=useState({
+    title:"",
+    description:"",
+    tags:[],
+    priority:"",
+    isFavorite:false
+  })
     return (
         <>
      <div className='bg-black bg-opacity-70 h-full w-full z-10 absolute top-0 left-0'>
 
      </div>
-    <form
+    <htmlForm
       className="mx-auto my-10 w-full max-w-[740px] rounded-xl border border-[#FEFBFB]/[36%] bg-[#191D26] p-9 max-md:px-4 lg:my-20 lg:p-11 z-10 absolute top-1/4 left-1/3"
     >
       <h2
@@ -17,7 +24,7 @@ const AddTaskModal = () => {
 
       <div className="space-y-9 text-white lg:space-y-10">
         <div className="space-y-2 lg:space-y-3">
-          <label for="title">Title</label>
+          <label htmlFor="title">Title</label>
           <input
             className="block w-full rounded-md bg-[#2D323F] px-3 py-2.5"
             type="text"
@@ -27,7 +34,7 @@ const AddTaskModal = () => {
           />
         </div>
         <div className="space-y-2 lg:space-y-3">
-          <label for="description">Description</label>
+          <label htmlFor="description">Description</label>
           <textarea
             className="block min-h-[120px] w-full rounded-md bg-[#2D323F] px-3 py-2.5 lg:min-h-[180px]"
             type="text"
@@ -40,7 +47,7 @@ const AddTaskModal = () => {
           className="grid-cols-2 gap-x-4 max-md:space-y-9 md:grid lg:gap-x-10 xl:gap-x-20"
         >
           <div className="space-y-2 lg:space-y-3">
-            <label for="tags">Tags</label>
+            <label htmlFor="tags">Tags</label>
             <input
               className="block w-full rounded-md bg-[#2D323F] px-3 py-2.5"
               type="text"
@@ -50,7 +57,7 @@ const AddTaskModal = () => {
             />
           </div>
           <div className="space-y-2 lg:space-y-3">
-            <label for="priority">Priority</label>
+            <label htmlFor="priority">Priority</label>
             <select
               className="block w-full cursor-pointer rounded-md bg-[#2D323F] px-3 py-2.5"
               name="priority"
@@ -73,7 +80,7 @@ const AddTaskModal = () => {
           Create new Task
         </button>
       </div>
-    </form>
+    </htmlForm>
     </>
     );
 };
