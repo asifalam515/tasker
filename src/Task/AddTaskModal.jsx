@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-const AddTaskModal = () => {
+const AddTaskModal = ({onSave}) => {
 
   const [task,setTask]=useState({
+    id:crypto.randomUUID(),
     title:"",
     description:"",
     tags:[],
@@ -10,7 +11,7 @@ const AddTaskModal = () => {
     isFavorite:false
   })
  const handleChange =(e)=>{
-  e.preventDefault()
+  // e.preventDefault()
   const name = e.target.name
   let value = e.target.value
   if(name ==='tags'){
@@ -86,19 +87,19 @@ setTask({
               required
             >
               <option value="">Select Priority</option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
             </select>
           </div>
         </div>
       </div>
       <div className="mt-16 flex justify-center lg:mt-20">
-        <button
+        <button onClick={()=>onSave(task)}
           type="submit"
           className="rounded bg-blue-600 px-4 py-2 text-white transition-all hover:opacity-80"
         >
-          Create new Task
+          Save
         </button>
       </div>
     </htmlForm>
