@@ -1,13 +1,26 @@
 import { useState } from "react";
 
 const AddTaskModal = () => {
-  const [task,setTasks]=useState({
+
+  const [task,setTask]=useState({
     title:"",
     description:"",
     tags:[],
     priority:"",
     isFavorite:false
   })
+ const handleChange =(e)=>{
+  e.preventDefault()
+  const name = e.target.name
+  let value = e.target.value
+  if(name ==='tags'){
+    value = value.split(",")
+  }
+  
+setTask({
+  ...task,[name]:value
+})
+ }
     return (
         <>
      <div className='bg-black bg-opacity-70 h-full w-full z-10 absolute top-0 left-0'>
@@ -30,6 +43,8 @@ const AddTaskModal = () => {
             type="text"
             name="title"
             id="title"
+            value={task.title}
+            onChange={handleChange}
             required
           />
         </div>
@@ -40,6 +55,8 @@ const AddTaskModal = () => {
             type="text"
             name="description"
             id="description"
+            value={task.description}
+            onChange={handleChange}
             required
           ></textarea>
         </div>
@@ -53,6 +70,8 @@ const AddTaskModal = () => {
               type="text"
               name="tags"
               id="tags"
+              value={task.tags}
+            onChange={handleChange}
               required
             />
           </div>
@@ -62,6 +81,8 @@ const AddTaskModal = () => {
               className="block w-full cursor-pointer rounded-md bg-[#2D323F] px-3 py-2.5"
               name="priority"
               id="priority"
+                value={task.priority}
+            onChange={handleChange}
               required
             >
               <option value="">Select Priority</option>
